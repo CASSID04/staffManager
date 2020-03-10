@@ -1,23 +1,23 @@
 package main;
 
 import java.io.File;
-import testing.Appender;
+import testing.AppendEmployee;
 
 public class Controller {
     File file = new File("C:\\Users\\darri\\Desktop\\cocksuckers.xml");
     
-    public Controller() {
+    public Controller(Employee employee) {
         if(file.exists()==true) {
-            Appender appender = new Appender();
+            AppendEmployee appender = new AppendEmployee(employee);
         } else {
             WriteEmployee write = new WriteEmployee();
-            write.save();
+            write.save(employee);
         }    
     }
     
     public static void main(String[] args) {
-        
-        Controller control = new Controller();
+        Employee employee = new Employee("Julia","Cassidy","Supervisor","125000");
+        Controller control = new Controller(employee);
         
 
         

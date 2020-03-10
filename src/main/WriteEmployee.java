@@ -15,9 +15,8 @@ import org.w3c.dom.Element;
 
 public class WriteEmployee {
     public static int count = 0;
-    //File file = new File("C:\\Users\\darri\\Desktop\\cocksuckers.xml");
     
-    public void save() {
+    public void save(Employee employee) {
 	  try {
 		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -28,28 +27,22 @@ public class WriteEmployee {
 
             	Element staff = doc.createElement("Employee");
 		rootElement.appendChild(staff);
-            
-		//Attr attr = doc.createAttribute("id");
-                //count++;
-		//attr.setValue(Integer.toString(count));
-		//staff.setAttributeNode(attr);
 
 		Element firstname = doc.createElement("firstname");
-		firstname.appendChild(doc.createTextNode("Darrin"));
+		firstname.appendChild(doc.createTextNode(employee.firstName));
 		staff.appendChild(firstname);
 
 		Element lastname = doc.createElement("lastname");
-		lastname.appendChild(doc.createTextNode("Cassidy"));
+		lastname.appendChild(doc.createTextNode(employee.lastName));
 		staff.appendChild(lastname);
 
 		Element nickname = doc.createElement("title");
-		nickname.appendChild(doc.createTextNode("Supervisor"));
+		nickname.appendChild(doc.createTextNode(employee.position));
 		staff.appendChild(nickname);
 
 		Element salary = doc.createElement("salary");
-		salary.appendChild(doc.createTextNode("125000"));
+		salary.appendChild(doc.createTextNode(employee.salary));
 		staff.appendChild(salary);
-        //}
 
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();

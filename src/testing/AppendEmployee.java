@@ -6,10 +6,11 @@ import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
+import main.Employee;
 
-public class Appender {
+public class AppendEmployee {
 
-public Appender() {
+public AppendEmployee(Employee employee) {
     
     
     try {
@@ -20,16 +21,16 @@ public Appender() {
         Element documentElement = document.getDocumentElement();
         
         Element firstName = document.createElement("firstName");
-        firstName.setTextContent("Darrin");
+        firstName.setTextContent(employee.firstName);
         
         Element lastName = document.createElement("lastName");
-        lastName.setTextContent("Cassidy");
+        lastName.setTextContent(employee.lastName);
         
         Element position = document.createElement("position");
-        position.setTextContent("Supervisor");
+        position.setTextContent(employee.position);
         
         Element salary = document.createElement("salary");
-        salary.setTextContent("125000");
+        salary.setTextContent(employee.salary);
         
         Element nodeElement = document.createElement("Employee");
         nodeElement.appendChild(firstName);
