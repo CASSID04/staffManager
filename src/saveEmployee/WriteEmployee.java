@@ -1,4 +1,4 @@
-package main;
+package saveEmployee;
 
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -27,6 +27,10 @@ public class WriteEmployee {
 
             	Element staff = doc.createElement("Employee");
 		rootElement.appendChild(staff);
+                
+		Element department = doc.createElement("department");
+		department.appendChild(doc.createTextNode(employee.department));
+		staff.appendChild(department);
 
 		Element firstname = doc.createElement("firstname");
 		firstname.appendChild(doc.createTextNode(employee.firstName));

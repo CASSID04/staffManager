@@ -1,4 +1,4 @@
-package testing;
+package saveEmployee;
 
 import java.io.*;
 import org.w3c.dom.*;
@@ -6,7 +6,7 @@ import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
-import main.Employee;
+import saveEmployee.Employee;
 
 public class AppendEmployee {
 
@@ -19,6 +19,9 @@ public AppendEmployee(Employee employee) {
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
         Document document = documentBuilder.parse(xmlFile);
         Element documentElement = document.getDocumentElement();
+        
+        Element department = document.createElement("department");
+        department.setTextContent(employee.department);
         
         Element firstName = document.createElement("firstName");
         firstName.setTextContent(employee.firstName);

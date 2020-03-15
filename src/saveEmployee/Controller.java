@@ -1,12 +1,11 @@
-package main;
+package saveEmployee;
 
 import java.io.File;
-import testing.AppendEmployee;
 
-public class Controller {
+public class Controller  extends javax.swing.JFrame {
     File file = new File("C:\\Users\\darri\\Desktop\\cocksuckers.xml");
     
-    public Controller(Employee employee) {
+    public void saveEmployee(Employee employee) {
         if(file.exists()==true) {
             AppendEmployee appender = new AppendEmployee(employee);
         } else {
@@ -15,9 +14,9 @@ public class Controller {
         }    
     }
     
-    public static void main(String[] args) {
-        Employee employee = new Employee("Julia","Cassidy","Supervisor","125000");
-        Controller control = new Controller(employee);
+    public static void saveEmployee2(Employee employee) {
+        employee = new Employee("Patient","Daniel","Cassidy","Supervisor","125000");
+        //Controller control = new Controller(employee);
         
 
         
