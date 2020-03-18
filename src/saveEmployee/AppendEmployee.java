@@ -36,6 +36,7 @@ public AppendEmployee(Employee employee) {
         salary.setTextContent(employee.salary);
         
         Element nodeElement = document.createElement("Employee");
+        nodeElement.appendChild(department);
         nodeElement.appendChild(firstName);
         nodeElement.appendChild(lastName);
         nodeElement.appendChild(position);

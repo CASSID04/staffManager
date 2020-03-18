@@ -1,6 +1,7 @@
 package saveEmployee;
 
 import java.io.File;
+import loadEmployee.LoadEmployee;
 
 public class Controller  extends javax.swing.JFrame {
     File file = new File("C:\\Users\\darri\\Desktop\\cocksuckers.xml");
@@ -14,14 +15,14 @@ public class Controller  extends javax.swing.JFrame {
         }    
     }
     
-    public static void saveEmployee2(Employee employee) {
-        employee = new Employee("Patient","Daniel","Cassidy","Supervisor","125000");
-        //Controller control = new Controller(employee);
+    public static void main(String[] args) throws Exception {
+        //Employee employee = new Employee("Patient","Daniel","Cassidy","Supervisor","125000");
+        //Controller control = new Controller();
+        //control.saveEmployee(employee);
+        //control.saveEmployee(employee);
+        //control.saveEmployee(employee);
         
-
-        
-        
-        //Appender appender = new Appender();
+        LoadEmployee load = new LoadEmployee();
         
     }
 }

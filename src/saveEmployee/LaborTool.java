@@ -41,6 +41,7 @@ public class LaborTool extends Controller {
         salaryText = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         submitButton = new javax.swing.JButton();
+        sampleButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -196,7 +197,7 @@ public class LaborTool extends Controller {
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("New", jPanel1);
@@ -221,6 +222,13 @@ public class LaborTool extends Controller {
             }
         });
 
+        sampleButton.setText("SAMPLE");
+        sampleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sampleButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -232,7 +240,9 @@ public class LaborTool extends Controller {
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(190, 190, 190)
-                        .addComponent(submitButton)))
+                        .addComponent(submitButton)
+                        .addGap(40, 40, 40)
+                        .addComponent(sampleButton)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -241,7 +251,9 @@ public class LaborTool extends Controller {
                 .addContainerGap()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(submitButton)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitButton)
+                    .addComponent(sampleButton))
                 .addContainerGap(439, Short.MAX_VALUE))
         );
 
@@ -260,9 +272,8 @@ public class LaborTool extends Controller {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
 
         pack();
@@ -281,7 +292,15 @@ public class LaborTool extends Controller {
         
     }//GEN-LAST:event_submitButtonActionPerformed
 
-    public static void main(String[] args) {
+    private void sampleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sampleButtonActionPerformed
+        departmentText.setText(("a"));
+        firstNameText.setText(("s"));
+        lastNameText.setText(("d"));
+        positionText.setText(("f"));
+        salaryText.setText(("g"));
+    }//GEN-LAST:event_sampleButtonActionPerformed
+
+    public static void hold(String[] args) {
         LaborTool tool = new LaborTool();
     }
 
@@ -306,6 +325,7 @@ public class LaborTool extends Controller {
     private javax.swing.JTextField lastNameText;
     private javax.swing.JTextField positionText;
     private javax.swing.JTextField salaryText;
+    private javax.swing.JButton sampleButton;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }
