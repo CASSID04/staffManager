@@ -25,8 +25,8 @@ for (int temp = 0; temp < nList.getLength(); temp++) {
  if (node.getNodeType() == Node.ELEMENT_NODE) {
     //Print each employee's detail
     Element eElement = (Element) node;
+
     
-    System.out.println("Department :  "  + eElement.getElementsByTagName("firstname").item(0).getTextContent());
     //System.out.println("First Name  :  "  + eElement.getElementsByTagName("firstname").item(0).getTextContent());
     //System.out.println("Last Name   :  "   + eElement.getElementsByTagName("lastname").item(0).getTextContent());
     //System.out.println("Nick Name   :  "    + eElement.getElementsByTagName("nickname").item(0).getTextContent());
