@@ -23,6 +23,6 @@ public class Controller  extends javax.swing.JFrame {
         //control.saveEmployee(employee);
         
         LoadEmployee load = new LoadEmployee();
-        
+        ///////////////////////////////////////
     }
 }
