@@ -25,25 +25,37 @@ public class WriteEmployee {
 		Element rootElement = doc.createElement("Department");
 		doc.appendChild(rootElement);
 
-            	Element staff = doc.createElement("Employee");
+            	Element staff = doc.createElement("Staff");
 		rootElement.appendChild(staff);
+
+		// set attribute to staff element
+		Attr attr = doc.createAttribute("id");
                 
-		Element department = doc.createElement("department");
-		department.appendChild(doc.createTextNode(employee.department));
-		staff.appendChild(department);
+
+                
+                //Employee.count++;
+		attr.setValue(Integer.toString(Employee.count));
+		staff.setAttributeNode(attr);
+                
+                Element department = doc.createElement("department");
+                department.appendChild(doc.createTextNode(employee.department));
+                staff.appendChild(department);
 
 		Element firstname = doc.createElement("firstname");
 		firstname.appendChild(doc.createTextNode(employee.firstName));
 		staff.appendChild(firstname);
 
+		// lastname elements
 		Element lastname = doc.createElement("lastname");
 		lastname.appendChild(doc.createTextNode(employee.lastName));
 		staff.appendChild(lastname);
 
-		Element nickname = doc.createElement("title");
+		// nickname elements
+		Element nickname = doc.createElement("position");
 		nickname.appendChild(doc.createTextNode(employee.position));
 		staff.appendChild(nickname);
 
+		// salary elements
 		Element salary = doc.createElement("salary");
 		salary.appendChild(doc.createTextNode(employee.salary));
 		staff.appendChild(salary);
