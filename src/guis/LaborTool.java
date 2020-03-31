@@ -1,5 +1,8 @@
 
-package saveEmployee;
+package guis;
+
+import saveEmployee.Controller;
+import saveEmployee.Employee;
 
 public class LaborTool extends Controller {
     //Controller controller = new Controller();

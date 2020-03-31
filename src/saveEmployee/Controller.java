@@ -1,5 +1,6 @@
 package saveEmployee;
 
+import guis.Lister;
 import java.io.File;
 import loadEmployee.Filter;
 import loadEmployee.LoadEmployee;
@@ -24,6 +25,9 @@ public class Controller  extends javax.swing.JFrame {
         Employee employee4 = new Employee("Retail","Danielle","Skinner","Manager","55000");
         Employee employee5 = new Employee("Patient","Sarla","Patel","Cashier","38000");
         Employee employee6 = new Employee("Sani","Louis","Tara","Dishwasher","32000");
+        Employee employee7 = new Employee("Retail","Danielle","Skinner","Manager","55000");
+        Employee employee8 = new Employee("Patient","Sarla","Patel","Cashier","38000");
+        Employee employee9 = new Employee("Sani","Louis","Tara","Dishwasher","32000");
         
         Controller control = new Controller();
         control.saveEmployee(employee1);
@@ -50,21 +54,23 @@ public class Controller  extends javax.swing.JFrame {
     }
     
     public void printDepartmentCensus() {
-        
-    }
-    
-    public static void main(String[] args) throws Exception {
-        Controller control = new Controller();
-        control.action("load");
-        
-
-        //2
         Filter filter = new Filter();
         filter.getDepartmentSizes(LoadEmployee.loadedEmployees);
         int[] test = filter.getDepartmentSizes(LoadEmployee.loadedEmployees);
             System.out.println("Patient -  "+test[0]);
             System.out.println("Retail  -  "+test[1]);
             System.out.println("Sani    -  "+test[2]);
+    }
+    
+    public static void main(String[] args) throws Exception {
+        Controller control = new Controller();
+        control.action("load");
+        control.printDepartmentCensus();
+        
+        Lister lister = new Lister();
+
+        //2
+
         //2
         
     }
