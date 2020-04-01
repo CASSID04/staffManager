@@ -5,22 +5,33 @@ import saveEmployee.Employee;
 
 public class Filter {
     
-    public void getDepartment(String selectDepartment) {
+    public ArrayList<Employee> getDepartmentEmployees(String selectDepartment) {
+        ArrayList<Employee> patient = new ArrayList<Employee>();
+        ArrayList<Employee> retail = new ArrayList<Employee>();
+        ArrayList<Employee> sani = new ArrayList<Employee>();
 
         for(int i=0;i<LoadEmployee.loadedEmployees.size();i++) {
-            
             switch(LoadEmployee.loadedEmployees.get(i).department) {
                 case "Patient":
-                    System.out.println(LoadEmployee.loadedEmployees.get(i).lastName);
+                    patient.add(LoadEmployee.loadedEmployees.get(i));
                     break;
                 case "Retail":
-                    
+                    retail.add(LoadEmployee.loadedEmployees.get(i));
                     break;
                 case "Sani":
-                    
+                    sani.add(LoadEmployee.loadedEmployees.get(i));
                     break;
             }
-
+        }
+        
+        if(selectDepartment=="Patient") {
+            return patient;
+        } else if(selectDepartment=="Retail") {
+            return retail;
+        } else if(selectDepartment=="Sani") {
+            return sani;
+        } else {
+            return null;
         }
 
     }

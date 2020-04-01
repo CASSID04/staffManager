@@ -1,9 +1,11 @@
 
 package guis;
 
+import java.util.ArrayList;
 import javax.swing.JTextField;
 import loadEmployee.Filter;
 import loadEmployee.LoadEmployee;
+import saveEmployee.Employee;
 
 public class Lister extends javax.swing.JFrame {
     public static int startList = 0;
@@ -388,10 +390,23 @@ public class Lister extends javax.swing.JFrame {
         
         for(int i=0;i<5;i++) {
             if(i<LoadEmployee.loadedEmployees.size()){
-            name[i].setText(LoadEmployee.loadedEmployees.get(startList+i).lastName);
-            department[i].setText(LoadEmployee.loadedEmployees.get(startList+i).department);
-            position[i].setText(LoadEmployee.loadedEmployees.get(startList+i).position);
-            salary[i].setText(LoadEmployee.loadedEmployees.get(startList+i).salary);
+                
+                name[i].setText(LoadEmployee.loadedEmployees.get(startList+i).lastName);
+            
+                department[i].setText(LoadEmployee.loadedEmployees.get(startList+i).department);
+            
+                position[i].setText(LoadEmployee.loadedEmployees.get(startList+i).position);
+            
+                salary[i].setText(LoadEmployee.loadedEmployees.get(startList+i).salary);
+            
+            } else {
+                name[i].setText("");
+            
+                department[i].setText("");
+            
+                position[i].setText("");
+            
+                salary[i].setText("");
             }
             
 
@@ -420,10 +435,43 @@ public class Lister extends javax.swing.JFrame {
 
     private void chooseDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseDepartmentActionPerformed
         String getEntryType = chooseDepartment.getSelectedItem().toString();
-        System.out.println(getEntryType);
         
-        Filter filter = new Filter();
-        filter.getDepartment(getEntryType);
+        ArrayList<Employee> patient = new ArrayList<Employee>();
+        ArrayList<Employee> retail = new ArrayList<Employee>();
+        ArrayList<Employee> sani = new ArrayList<Employee>();
+        
+        for(int i=0;i<LoadEmployee.loadedEmployees.size();i++) {
+            switch(LoadEmployee.loadedEmployees.get(i).department) {
+                case "Patient":
+                    patient.add(LoadEmployee.loadedEmployees.get(i));
+                    break;
+                case "Retail":
+                    retail.add(LoadEmployee.loadedEmployees.get(i));
+                    break;
+                case "Sani":
+                    sani.add(LoadEmployee.loadedEmployees.get(i));
+                    break;
+            }
+        }
+        
+        switch(getEntryType) {
+                case "Patient":
+                    LoadEmployee.loadedEmployees = patient;
+                    for(int i=0;i<LoadEmployee.loadedEmployees.size();i++) {
+                        System.out.println(LoadEmployee.loadedEmployees.get(i).firstName);
+                    }
+                    break;
+                case "Retail":
+                    LoadEmployee.loadedEmployees = retail;
+                    break;
+                case "Sani":
+                    LoadEmployee.loadedEmployees = sani;
+                    break;
+        }
+        
+        startList = 0;
+        
+        updateDisplay();
     }//GEN-LAST:event_chooseDepartmentActionPerformed
 
 

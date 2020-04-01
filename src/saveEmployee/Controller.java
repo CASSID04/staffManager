@@ -71,8 +71,8 @@ public class Controller  extends javax.swing.JFrame {
         //control.printDepartmentCensus();
         
         Lister lister = new Lister();
-
-        //2
+        //working filters = department
+        //incomplete filters = position,salary
 
         //2
         
