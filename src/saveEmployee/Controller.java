@@ -25,9 +25,9 @@ public class Controller  extends javax.swing.JFrame {
         Employee employee4 = new Employee("Retail","Danielle","Skinner","Manager","55000");
         Employee employee5 = new Employee("Patient","Sarla","Patel","Cashier","38000");
         Employee employee6 = new Employee("Sani","Louis","Tara","Dishwasher","32000");
-        Employee employee7 = new Employee("Retail","Danielle","Skinner","Manager","55000");
-        Employee employee8 = new Employee("Patient","Sarla","Patel","Cashier","38000");
-        Employee employee9 = new Employee("Sani","Louis","Tara","Dishwasher","32000");
+        Employee employee7 = new Employee("Retail","Ficelli","Danielle","Cashier","30000");
+        Employee employee8 = new Employee("Patient","Rodriguez","Yelizabeth","NCR","28000");
+        Employee employee9 = new Employee("Sani","Tabet","Marc","Floors","27000");
         
         Controller control = new Controller();
         control.saveEmployee(employee1);
@@ -36,6 +36,9 @@ public class Controller  extends javax.swing.JFrame {
         control.saveEmployee(employee4);
         control.saveEmployee(employee5);
         control.saveEmployee(employee6);
+        control.saveEmployee(employee7);
+        control.saveEmployee(employee8);
+        control.saveEmployee(employee9);
         
         } else if(actionType=="load") {
             LoadEmployee load = new LoadEmployee();
@@ -65,7 +68,7 @@ public class Controller  extends javax.swing.JFrame {
     public static void main(String[] args) throws Exception {
         Controller control = new Controller();
         control.action("load");
-        control.printDepartmentCensus();
+        //control.printDepartmentCensus();
         
         Lister lister = new Lister();
 

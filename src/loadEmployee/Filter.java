@@ -5,6 +5,26 @@ import saveEmployee.Employee;
 
 public class Filter {
     
+    public void getDepartment(String selectDepartment) {
+
+        for(int i=0;i<LoadEmployee.loadedEmployees.size();i++) {
+            
+            switch(LoadEmployee.loadedEmployees.get(i).department) {
+                case "Patient":
+                    System.out.println(LoadEmployee.loadedEmployees.get(i).lastName);
+                    break;
+                case "Retail":
+                    
+                    break;
+                case "Sani":
+                    
+                    break;
+            }
+
+        }
+
+    }
+    
     public int[] getDepartmentSizes(ArrayList<Employee>setList) {
         int patient = 0;
         int retail = 0;

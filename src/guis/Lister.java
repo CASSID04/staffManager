@@ -2,20 +2,17 @@
 package guis;
 
 import javax.swing.JTextField;
+import loadEmployee.Filter;
 import loadEmployee.LoadEmployee;
 
 public class Lister extends javax.swing.JFrame {
     public static int startList = 0;
 
-    
     public Lister() {
         initComponents();
         setVisible(true);
-        
-        updateDisplay();
-        
+        updateDisplay();    
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -249,6 +246,11 @@ public class Lister extends javax.swing.JFrame {
         );
 
         chooseDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dept", "Patient", "Retail", "Sanitation" }));
+        chooseDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseDepartmentActionPerformed(evt);
+            }
+        });
 
         choosePosition.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Deliver", "Order", "Production", "Dishwasher" }));
 
@@ -377,44 +379,52 @@ public class Lister extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    
+ 
     public void updateDisplay() {
-        //JTextField[] employees = {n1,n2,n3,n4,n5};
+        JTextField[] name = {n1,n2,n3,n4,n5};
+        JTextField[] department = {d1,d2,d3,d4,d5};
+        JTextField[] position = {p1,p2,p3,p4,p5};
+        JTextField[] salary = {s1,s2,s3,s4,s5};
         
-        //for(int i = startList;i<=stopList;i++) {
-         //   employees[i].setText(LoadEmployee.loadedEmployees.get(i).lastName+", "+LoadEmployee.loadedEmployees.get(i).firstName);
-       // }
-       n1.setText(LoadEmployee.loadedEmployees.get(startList).lastName);
-       n2.setText(LoadEmployee.loadedEmployees.get(startList+1).lastName);
-       n3.setText(LoadEmployee.loadedEmployees.get(startList+2).lastName);
-       n4.setText(LoadEmployee.loadedEmployees.get(startList+3).lastName);
-       n5.setText(LoadEmployee.loadedEmployees.get(startList+4).lastName);
-    }    
+        for(int i=0;i<5;i++) {
+            if(i<LoadEmployee.loadedEmployees.size()){
+            name[i].setText(LoadEmployee.loadedEmployees.get(startList+i).lastName);
+            department[i].setText(LoadEmployee.loadedEmployees.get(startList+i).department);
+            position[i].setText(LoadEmployee.loadedEmployees.get(startList+i).position);
+            salary[i].setText(LoadEmployee.loadedEmployees.get(startList+i).salary);
+            }
+            
+
+        }
+    } 
     
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        
-        JTextField[] text = {n1,n2,n3,n4,n5};
-        
-        
-        for(int i=0;i<LoadEmployee.loadedEmployees.size();i++) {
-            text[i].setText(LoadEmployee.loadedEmployees.get(i).lastName+", "+LoadEmployee.loadedEmployees.get(i).lastName);
-        }
-        updateDisplay();
-        
+          
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void upButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upButtonActionPerformed
         
-        updateDisplay();
+        if(startList>0) {
+            startList--;
+            updateDisplay();
+        }
     }//GEN-LAST:event_upButtonActionPerformed
 
     private void downButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downButtonActionPerformed
-        
-            startList+=1;
-        
-        updateDisplay();
+        if(startList<LoadEmployee.loadedEmployees.size()-5) {
+            startList++;
+            updateDisplay();
+        }
+          
     }//GEN-LAST:event_downButtonActionPerformed
+
+    private void chooseDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseDepartmentActionPerformed
+        String getEntryType = chooseDepartment.getSelectedItem().toString();
+        System.out.println(getEntryType);
+        
+        Filter filter = new Filter();
+        filter.getDepartment(getEntryType);
+    }//GEN-LAST:event_chooseDepartmentActionPerformed
 
 
 
